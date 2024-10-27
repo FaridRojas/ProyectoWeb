@@ -1,3 +1,10 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebook } from '@fortawesome/free-brands-svg-icons';
+import { faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faLinkedin } from '@fortawesome/free-brands-svg-icons';
+
+
 function Footer() {
     const miembros = [
       { nom: 'Farid Rojas', nombre: 'Farid Camilo Rojas Vargas', codigo: '2220051', correo: 'juan.perez@example.com' },
@@ -12,11 +19,12 @@ function Footer() {
   
     return (
       <footer className="text-center py-4">
-        <p>Nuestras redes sociales:</p>
-        <a href="https://facebook.com">Facebook</a> | 
-        <a href="https://twitter.com">Twitter</a> | 
-        <a href="https://instagram.com">Instagram</a> | 
-        <a href="https://linkedin.com">LinkedIn</a>
+        
+        <p>Síguenos en nuestras redes sociales:</p>
+        <a href="https://facebook.com"><FontAwesomeIcon icon={faFacebook}/></a>  <span style={{ margin: '0 10px' }}>|</span>
+        <a href="https://twitter.com"><FontAwesomeIcon icon={faTwitter}/></a> <span style={{ margin: '0 10px' }}>|</span>
+        <a href="https://instagram.com"><FontAwesomeIcon icon={faInstagram}/></a> <span style={{ margin: '0 10px' }}>|</span>
+        <a href="https://linkedin.com"><FontAwesomeIcon icon={faLinkedin}/></a> <span style={{ margin: '0 10px' }}>|</span>
   
         <p className="mt-3">Contáctenos:</p>
         {/* Botones para cada miembro del equipo */}
@@ -29,6 +37,9 @@ function Footer() {
             {miembro.nom}
           </button>
         ))}
+
+        
+
       </footer>
     );
   }
