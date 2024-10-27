@@ -23,7 +23,7 @@ body {
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('https://e0.pxfuel.com/wallpapers/593/18/desktop-wallpaper-mechanic-garage-workshop-girl-repair-ford-car.jpg');
+  background-image: url('https://wallpapers.com/images/hd/car-repair-2560-x-1709-wallpaper-636vaflv6nxnjh7x.jpg');
   background-size: cover;
   background-position: center;
   z-index: 500; /* Debe estar por encima del contenido de la página */
@@ -34,4 +34,18 @@ body {
   position: relative;
   z-index: 1050; /* Por encima del fondo personalizado */
   border-radius: 10px;
+}
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+}
+
+.card {
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.btn {
+  margin-top: 10px;
 }

@@ -16,14 +16,32 @@ function Header() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    const loggedIn = localStorage.getItem('loggedIn');
-    setIsLoggedIn(!!loggedIn);
+    const handleStorageChange = () => {
+      const loggedIn = localStorage.getItem('loggedIn');
+      setIsLoggedIn(!!loggedIn); // Verifica si el usuario está logueado
+    };
+
+    // Escucha cambios en localStorage para actualizar el estado
+    window.addEventListener('storage', handleStorageChange);
+    handleStorageChange(); // Verifica el estado al cargar
+
+    return () => {
+      window.removeEventListener('storage', handleStorageChange);
+    };
   }, []);
 
   const handleLogout = () => {
     localStorage.removeItem('loggedIn');
     setIsLoggedIn(false);
     navigate('/');
+  };
+
+  const handleDashboard = () => {
+    navigate('/dashboard');
+  };
+
+  const handleUserContent = () => {
+    navigate('/user-content'); // Navega a la página de contenido del usuario
   };
 
   return (
@@ -34,7 +52,13 @@ function Header() {
         <Nav className="ml-auto">
           <Nav.Link href="/">Inicio</Nav.Link>
           {!isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
-          {isLoggedIn && <Nav.Link onClick={handleLogout}>Cerrar Sesión</Nav.Link>}
+          {isLoggedIn && (
+            <>
+              <Nav.Link onClick={handleDashboard}>Dashboard</Nav.Link>
+              <Nav.Link onClick={handleUserContent}>Mi Contenido</Nav.Link> {/* Nueva opción */}
+              <Nav.Link onClick={handleLogout}>Cerrar Sesión</Nav.Link>
+            </>
+          )}
         </Nav>
       </Navbar.Collapse>
 

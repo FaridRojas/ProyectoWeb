@@ -8,16 +8,17 @@ function Login() {
   const [credentials, setCredentials] = useState({ user: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const navigate = useNavigate(); // Hook para navegación programática
+  const navigate = useNavigate(); 
 
   const handleLogin = (e) => {
     e.preventDefault();
     setLoading(true);
     setTimeout(() => {
       if (credentials.user === 'admin' && credentials.password === '1234') {
-        localStorage.setItem('loggedIn', 'true');
+        localStorage.setItem('loggedIn', 'true'); // Guarda el estado en localStorage
         setShow(false);
-        navigate('/admin'); // Navega a admin si el login es exitoso
+        window.dispatchEvent(new Event('storage')); // Dispara el evento para notificar cambios
+        navigate('/'); // Redirige al inicio
       } else {
         setError(true);
       }
@@ -25,10 +26,10 @@ function Login() {
     }, 1000);
   };
 
-  // Manejar cierre del modal y redirigir a la página de inicio
+ 
   const handleClose = () => {
     setShow(false);
-    navigate('/'); // Navega al inicio al cerrar el modal
+    navigate('/'); 
   };
 
   return (
@@ -36,7 +37,7 @@ function Login() {
       {show && <div className="custom-backdrop"></div>}
       <Modal
         show={show}
-        onHide={handleClose} // Usa handleClose para el cierre del modal
+        onHide={handleClose} 
         centered
         backdrop={false}
         keyboard={false}
