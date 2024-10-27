@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import { Modal, Button, Form, Alert, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { Arrow90degLeft } from 'react-bootstrap-icons';
 
 function Login() {
   const [show, setShow] = useState(true);
@@ -42,8 +43,9 @@ function Login() {
         backdrop={false}
         keyboard={false}
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Iniciar Sesión</Modal.Title>
+        <Modal.Header>
+          <Modal.Title className="me-auto">Iniciar Sesión</Modal.Title>
+          <Arrow90degLeft size={24} style={{ cursor: 'pointer' }} onClick={handleClose} />
         </Modal.Header>
         <Modal.Body className="custom-modal-content">
           {error && <Alert variant="danger">Usuario o contraseña incorrectos</Alert>}
