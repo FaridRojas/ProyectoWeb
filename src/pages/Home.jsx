@@ -9,7 +9,7 @@ function Home() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://via.placeholder.com/800x300"
+            src="https://www.autoavance.co/wp-content/uploads/2021/10/taller-mecanico-productividad.jpeg"
             alt="First slide"
           />
           <Carousel.Caption>
@@ -20,7 +20,7 @@ function Home() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="https://via.placeholder.com/800x300"
+            src="https://gemicar.net/wp-content/uploads/2022/06/como-distribuir-un-taller-mecanico.jpg"
             alt="Second slide"
           />
           <Carousel.Caption>
