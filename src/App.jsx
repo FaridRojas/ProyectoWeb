@@ -5,7 +5,7 @@ import Login from './pages/Login.jsx';
 import Admin from './pages/Admin.jsx';
 import Header from './components/Header.jsx';
 import Footer from './components/Footer.jsx';
-import PrivateRoute from './PrivateRoute.jsx'; // Nueva importación
+import PrivateRoute from './PrivateRoute.jsx'; 
 
 function App() {
   return (

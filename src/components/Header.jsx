@@ -12,20 +12,18 @@ const popover = (
 
 function Header() {
   const [open, setOpen] = useState(false);
-  const [isLoggedIn, setIsLoggedIn] = useState(false); // Estado para verificar si está logueado
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const navigate = useNavigate();
 
-  // Verificar si el usuario está logueado al cargar el componente
   useEffect(() => {
     const loggedIn = localStorage.getItem('loggedIn');
-    setIsLoggedIn(!!loggedIn); // Si hay un valor en 'loggedIn', establece el estado en true
+    setIsLoggedIn(!!loggedIn);
   }, []);
 
-  // Función de cierre de sesión
   const handleLogout = () => {
-    localStorage.removeItem('loggedIn'); // Elimina el estado de sesión del almacenamiento local
-    setIsLoggedIn(false); // Actualiza el estado para ocultar el botón de logout
-    navigate('/'); // Redirige al usuario a la página de inicio
+    localStorage.removeItem('loggedIn');
+    setIsLoggedIn(false);
+    navigate('/');
   };
 
   return (
@@ -35,8 +33,8 @@ function Header() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link href="/">Inicio</Nav.Link>
-          {!isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>} {/* Mostrar Login solo si no está logueado */}
-          {isLoggedIn && <Nav.Link onClick={handleLogout}>Cerrar Sesión</Nav.Link>} {/* Mostrar Logout solo si está logueado */}
+          {!isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
+          {isLoggedIn && <Nav.Link onClick={handleLogout}>Cerrar Sesión</Nav.Link>}
         </Nav>
       </Navbar.Collapse>
 
