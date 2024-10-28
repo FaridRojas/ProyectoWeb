@@ -2,13 +2,20 @@
 import { useState } from 'react';
 import { Modal, Button, Form, Alert, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
 
 function Login() {
   const [show, setShow] = useState(true);
   const [credentials, setCredentials] = useState({ user: '', password: '' });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+
   const navigate = useNavigate(); 
+
+  const onCaptchaChange = (value) => {
+    setRecaptchaValue(value);
+};
 
   const handleLogin = (e) => {
     e.preventDefault();
@@ -65,8 +72,8 @@ function Login() {
                 onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
               />
             </Form.Group>
-
-            <Button variant="primary" type="submit" className="w-100" disabled={loading}>
+            <ReCAPTCHA sitekey="6LebEm4qAAAAAFCai6COWZRGeAx4o5kfESqYcT5O" onChange={onCaptchaChange} className="mb-3" />
+            <Button variant="primary" type="submit" className="w-100" disabled={loading || !recaptchaValue}>
               {loading ? <Spinner animation="border" size="sm" /> : 'Iniciar Sesión'}
             </Button>
           </Form>
