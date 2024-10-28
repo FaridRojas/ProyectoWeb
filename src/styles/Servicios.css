@@ -1,0 +1,105 @@
+/* Paleta de colores optimizada */
+:root {
+    --primary-dark: #212121;
+    --primary-medium: #424242;
+    --primary-light: #616161;
+    --accent-light: #f4f4f4;
+    --accent-bold: #e0e0e0;
+    --badge-color: #b8e986;
+    --text-dark: #1c1c1c;
+    --shadow-strong: rgba(0, 0, 0, 0.7);
+    --shadow-soft: rgba(0, 0, 0, 0.3);
+    --hover-bg-light: rgba(255, 255, 255, 0.1);
+    --hover-bg-bold: rgba(255, 255, 255, 0.2);
+}
+
+/* Contenedor del video de fondo */
+.video-background-container {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+/* Ajuste del video para ocupar todo el contenedor */
+.video-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+/* Contenedor de los servicios encima del video */
+.servicio-container {
+    position: relative;
+    z-index: 1;
+    margin: 4rem auto;
+    padding: 40px;
+    width: 80%;
+    max-width: 900px;
+    background: linear-gradient(
+        135deg,
+        rgba(33, 33, 33, 0.85),
+        rgba(66, 66, 66, 0.85)
+    );
+    border-radius: 15px;
+    box-shadow: 0 10px 30px var(--shadow-strong);
+    color: var(--accent-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Animación de hover en las tarjetas */
+.servicio-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px var(--shadow-strong);
+}
+
+/* Badge parpadeante con mejor contraste */
+.badge-nuevo {
+    background-color: var(--badge-color);
+    color: var(--text-dark);
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 12px;
+    animation: blink 1.5s infinite;
+    transition: transform 0.3s ease;
+}
+
+/* Animación de hover para el badge */
+.badge-nuevo:hover {
+    transform: scale(1.1);
+}
+
+/* Keyframes para parpadeo mejorado */
+@keyframes blink {
+    0%, 100% {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+}
+
+/* Opciones de hover y animaciones adicionales */
+.servicio-container h3 {
+    color: var(--accent-bold);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 10px;
+    transition: color 0.3s ease;
+}
+
+.servicio-container h3:hover {
+    color: var(--hover-bg-bold);
+}
+
+.servicio-container p {
+    line-height: 1.6;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+

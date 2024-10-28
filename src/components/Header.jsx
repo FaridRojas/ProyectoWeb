@@ -1,7 +1,7 @@
-// src/components/Header.jsx
-import { Navbar, Nav, OverlayTrigger, Popover, Collapse } from 'react-bootstrap';
+import { Navbar, Nav, OverlayTrigger, Popover, Collapse, Button } from 'react-bootstrap';
 import { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom';
+import '../styles/Header.css'; // Importar CSS personalizado
 
 const popover = (
   <Popover id="popover-basic">
@@ -26,12 +26,11 @@ function Header() {
   useEffect(() => {
     const handleStorageChange = () => {
       const loggedIn = localStorage.getItem('loggedIn');
-      setIsLoggedIn(!!loggedIn); // Verifica si el usuario está logueado
+      setIsLoggedIn(!!loggedIn);
     };
 
-    // Escucha cambios en localStorage para actualizar el estado
     window.addEventListener('storage', handleStorageChange);
-    handleStorageChange(); // Verifica el estado al cargar
+    handleStorageChange();
 
     return () => {
       window.removeEventListener('storage', handleStorageChange);
@@ -49,45 +48,56 @@ function Header() {
   };
 
   const handleUserContent = () => {
-    navigate('/user-content'); // Navega a la página de contenido del usuario
+    navigate('/user-content');
   };
 
   return (
-    <Navbar bg="dark" variant="dark" expand="lg" fixed="top">
-      <Navbar.Brand href="/">Taller Mecánico</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="ml-auto">
-          <Nav.Link href="/">Inicio</Nav.Link>
-          {!isLoggedIn && <Nav.Link href="/login">Login</Nav.Link>}
+    <Navbar className="custom-navbar" expand="lg" fixed="top">
+      <Navbar.Brand as={Link} to="/" className="brand-hover">
+        RUITOQUE CAR CENTER
+      </Navbar.Brand>
+      <button
+        className="btn-toggle-menu"
+        onClick={() => setOpen(!open)}
+        aria-controls="collapse-menu"
+        aria-expanded={open}
+      >
+        Menú
+      </button>
+
+      <Collapse in={open} className="collapse-menu">
+        <Nav className="menu-options">
+          <Nav.Link as={Link} to="/" className="menu-item-hover">Inicio</Nav.Link>
+          <Nav.Link as={Link} to="/servicios" className="menu-item-hover">Servicios</Nav.Link>
+          <Nav.Link as={Link} to="/promociones" className="menu-item-hover">Promociones</Nav.Link>
+          <Nav.Link as={Link} to="/preguntas-frecuentes" className="menu-item-hover">
+            Preguntas Frecuentes
+          </Nav.Link>
+          <Nav.Link as={Link} to="/horarios" className="menu-item-hover">Horarios</Nav.Link>
+          <Nav.Link as={Link} to="/video-audio" className="menu-item-hover">Video y Audio</Nav.Link>
+
+          {!isLoggedIn && (
+            <Nav.Link as={Link} to="/login" className="menu-item-hover">Login</Nav.Link>
+          )}
           {isLoggedIn && (
             <>
-              <Nav.Link onClick={handleDashboard}>Dashboard</Nav.Link>
-              <Nav.Link onClick={handleUserContent}>Mi Contenido</Nav.Link> {/* Nueva opción */}
-              <Nav.Link onClick={handleLogout}>Cerrar Sesión</Nav.Link>
+              <Nav.Link onClick={handleDashboard} className="menu-item-hover">
+                Dashboard
+              </Nav.Link>
+              <Nav.Link onClick={handleUserContent} className="menu-item-hover">
+                Mi Contenido
+              </Nav.Link>
+              <Nav.Link onClick={handleLogout} className="menu-item-hover">
+                Cerrar Sesión
+              </Nav.Link>
             </>
           )}
         </Nav>
-      </Navbar.Collapse>
+      </Collapse>
 
       <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-        <button className="btn btn-info mx-2">Horarios de Atención</button>
+        <Button variant="info" className="btn-info-hover">Info</Button>
       </OverlayTrigger>
-
-      <button
-        className="btn btn-warning"
-        onClick={() => setOpen(!open)}
-        aria-controls="collapse-content"
-        aria-expanded={open}
-      >
-        Menú Colapsable
-      </button>
-
-      <Collapse in={open}>
-        <div id="collapse-content" className="mt-2">
-          <p>Contenido del menú colapsable.</p>
-        </div>
-      </Collapse>
     </Navbar>
   );
 }

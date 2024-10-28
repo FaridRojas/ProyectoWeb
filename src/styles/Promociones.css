@@ -1,0 +1,68 @@
+/* src/styles/Promociones.css */
+.promociones-container {
+    height: 100vh;
+    background-color: #f1f2f6;
+    padding: 0;
+  }
+  
+  .promocion-slide img,
+  .promocion-slide video {
+    object-fit: cover;
+    height: 100vh;
+  }
+  
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+  }
+  
+
+
+  /* src/styles/Promociones.css */
+.promociones-container {
+    height: 100vh;
+    background-color: #f1f2f6;
+    padding: 0;
+  }
+  
+  .promocion-slide img,
+  .promocion-slide video {
+    object-fit: cover;
+    height: 100vh;
+  }
+  
+  .carousel-caption {
+    background: rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .carousel-caption h3 {
+    font-size: 2.5rem;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
+  }
+  
+  .carousel-caption p {
+    font-size: 1.2rem;
+  }
+  
+  button:hover {
+    transform: scale(1.1);
+    transition: transform 0.2s;
+  }
+  

@@ -1,0 +1,97 @@
+
+:root {
+    --gray-light: #f4f4f4;
+    --gray-medium: #c0c0c0;
+    --gray-dark: #525252;
+    --accent-color: #006699; 
+    --hover-accent: #005577; 
+    --text-color: #d7d7d7;
+    --btn-hover: #404040;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --shadow-strong: rgba(0, 0, 0, 0.2);
+}
+
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;500&family=Playfair+Display:wght@600&display=swap');
+
+
+.custom-navbar {
+    background-color: var(--gray-dark);
+    padding: 15px 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.custom-navbar .brand-hover {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: var(--gray-medium);
+    transition: color 0.3s ease, text-shadow 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+}
+
+.custom-navbar .brand-hover:hover {
+    color: var(--accent-color);
+    text-shadow: 0 0 12px var(--hover-accent);
+}
+
+
+.menu-options {
+    display: flex;
+    gap: 13px;
+    align-items: center;
+}
+
+.menu-item-hover {
+    font-family: 'Poppins', sans-serif;
+    color: var(--gray-medium);
+    font-size: 1rem;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-item-hover:hover {
+    background-color: var(--hover-accent);
+    color: var(--gray-light);
+    transform: translateY(-2px);
+}
+
+
+.btn-toggle-menu {
+    background-color: var(--accent-color);
+    color: var(--gray-light);
+    border: none;
+    padding: 10px 20px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-toggle-menu:hover {
+    background-color: var(--hover-accent);
+    transform: scale(1.05);
+}
+
+
+.btn-info-hover {
+    margin-left: 5px;
+    font-family: 'Poppins', sans-serif;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-info-hover:hover {
+    background-color: var(--btn-hover);
+    transform: scale(1.1);
+}
