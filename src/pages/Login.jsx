@@ -3,6 +3,8 @@ import { useState } from 'react';
 import { Modal, Button, Form, Alert, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import ReCAPTCHA from 'react-google-recaptcha';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBorderAll, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 function Login() {
   const [show, setShow] = useState(true);
@@ -10,6 +12,7 @@ function Login() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
   const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [showPassword, setShowPassword] = useState(false)
 
   const navigate = useNavigate(); 
 
@@ -65,12 +68,18 @@ function Login() {
             </Form.Group>
 
             <Form.Group controlId="formBasicPassword" className="mb-3">
-              <Form.Label>Contraseña</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Contraseña"
-                onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
-              />
+              <Form.Label>Contraseña</Form.Label >
+              <div className="input-group">
+                <Form.Control
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Contraseña"
+                  onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+
+                />
+                <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)} style={{border: 'None'}} >
+                      <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
+                </Button>
+              </div>
             </Form.Group>
             <ReCAPTCHA sitekey="6LebEm4qAAAAAFCai6COWZRGeAx4o5kfESqYcT5O" onChange={onCaptchaChange} className="mb-3" />
             <Button variant="primary" type="submit" className="w-100" disabled={loading || !recaptchaValue}>
