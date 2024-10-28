@@ -112,7 +112,7 @@ function Header() {
       </Collapse>
       {/* Botón de información con popover */}
       <OverlayTrigger trigger="click" placement="bottom" overlay={popover}>
-        <Button variant="info" className="btn-info-hover">Info</Button>
+        <Button variant="info" className="btn-info-hover">Horarios de Atención</Button>
       </OverlayTrigger>
     </Navbar>
   );

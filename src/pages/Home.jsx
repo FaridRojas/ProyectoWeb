@@ -33,18 +33,20 @@ function Home() {
       {/* Diseño a tres columnas */}
       <Row className="mt-4">
         <Col xs={12} md={4}>
-          <h3>Columna 1</h3>
+          <h3>Misión</h3>
           <p className="stylized-text">
-            Contenido de la primera columna, comenzando con una letra estilizada.
+          En Ruitoque Car Center, nuestra misión es brindar servicios automotrices de alta calidad, garantizando la seguridad y satisfacción de nuestros clientes mediante un trabajo profesional, eficiente y honesto. Nos esforzamos por mantener los más altos estándares en reparaciones, mantenimiento y servicio preventivo, utilizando tecnología avanzada y personal altamente calificado para asegurar que cada vehículo reciba el mejor cuidado posible.
           </p>
         </Col>
         <Col xs={12} md={4}>
-          <h3>Columna 2</h3>
-          <p>Contenido de la segunda columna</p>
+          <h3>Visión </h3>
+          <p className="stylized-text">
+          Nuestra visión en Ruitoque Car Center es consolidarnos como el taller mecánico de referencia en la región, reconocido por nuestra ética, experiencia y compromiso con la excelencia. Nos proyectamos como líderes en innovación en el servicio automotriz, adoptando constantemente nuevas tecnologías y prácticas sostenibles que beneficien a nuestros clientes y al medio ambiente.</p>
         </Col>
         <Col xs={12} md={4}>
-          <h3>Columna 3</h3>
-          <p>Contenido de la tercera columna</p>
+          <h3>Trayectoria </h3>
+          <p className="stylized-text">
+          Desde nuestra fundación, Ruitoque Car Center ha sido un pilar de confianza en la comunidad, ofreciendo soluciones automotrices que combinan experiencia, precisión y un servicio al cliente inigualable. A lo largo de los años, hemos crecido y evolucionado, actualizando nuestras técnicas y equipo, siempre fieles a nuestro compromiso de brindar servicios seguros y de alta calidad. Gracias al apoyo de nuestros clientes y a la dedicación de nuestro equipo, hoy nos enorgullece ser uno de los talleres más confiables y recomendados de la región.</p>
         </Col>
       </Row>
 
@@ -61,16 +63,16 @@ function Home() {
       </Accordion>
 
       {/* Video y Audio */}
-      <div className="mt-4">
-        <h2>Video Informativo</h2>
-        <video width="320" height="240" controls>
-          <source src="video.mp4" type="video/mp4" />
+      <div className="mt-4" >
+        <h2 style={{textAlign: 'center'}}>Video Informativo</h2>
+        <video width="100%" height="480" controls>
+          <source src="https://raw.githubusercontent.com/FaridRojas/ProyectoWeb/master/public/images/videomaz.mp4" type="video/mp4" />
           Tu navegador no soporta videos HTML5.
         </video>
 
-        <h2 className="mt-4">Audio de Bienvenida</h2>
-        <audio controls>
-          <source src="audio.mp3" type="audio/mp3" />
+        <h2 className="mt-4" style={{textAlign: 'center'}}>Audio de Bienvenida</h2>
+        <audio style={{ justifyContent: "center" }} controls>
+          <source src="https://raw.githubusercontent.com/FaridRojas/ProyectoWeb/master/public/audio/audio.mp3" type="audio/mp3" />
           Tu navegador no soporta audio HTML5.
         </audio>
       </div>
