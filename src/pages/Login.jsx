@@ -2,6 +2,9 @@
 import { useState } from 'react';
 import { Modal, Button, Form, Alert, Spinner } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import ReCAPTCHA from 'react-google-recaptcha';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBorderAll, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 
 // Definimos el componente funcional 'Login'.
 function Login() {
@@ -12,7 +15,14 @@ function Login() {
   const [error, setError] = useState(false); // Estado para manejar los errores de inicio de sesión.
   
   // Hook de navegación para redirigir a diferentes rutas.
+  const [recaptchaValue, setRecaptchaValue] = useState(null);
+  const [showPassword, setShowPassword] = useState(false)
+
   const navigate = useNavigate();
+
+  const onCaptchaChange = (value) => {
+    setRecaptchaValue(value);
+};
 
   // Función para manejar el inicio de sesión cuando se envía el formulario.
   const handleLogin = (e) => {
@@ -63,15 +73,22 @@ function Login() {
               />
             </Form.Group>
             <Form.Group controlId="formBasicPassword" className="mb-3">
-              <Form.Label>Contraseña</Form.Label>
-              <Form.Control
-                type="password"
-                placeholder="Contraseña"
-                onChange={(e) => setCredentials({ ...credentials, password: e.target.value })} // Actualiza el estado de credenciales cuando cambia el valor del campo.
-              />
+              <Form.Label>Contraseña</Form.Label >
+              <div className="input-group">
+                <Form.Control
+                  type={showPassword ? "text" : "password"}
+                  placeholder="Contraseña"
+                  onChange={(e) => setCredentials({ ...credentials, password: e.target.value })}
+
+                />
+                <Button variant="outline-secondary" onClick={() => setShowPassword(!showPassword)} style={{border: 'None'}} >
+                      <FontAwesomeIcon icon={showPassword ? faEye : faEyeSlash} />
+                </Button>
+              </div>
             </Form.Group>
-            <Button variant="primary" type="submit" className="w-100" disabled={loading}>
-              {loading ? <Spinner animation="border" size="sm" /> : 'Iniciar Sesión'} {/* Muestra un spinner de carga si está cargando. */}
+            <ReCAPTCHA sitekey="6LebEm4qAAAAAFCai6COWZRGeAx4o5kfESqYcT5O" onChange={onCaptchaChange} className="mb-3" />
+            <Button variant="primary" type="submit" className="w-100" disabled={loading || !recaptchaValue}>
+              {loading ? <Spinner animation="border" size="sm" /> : 'Iniciar Sesión'}
             </Button>
           </Form>
         </Modal.Body>
