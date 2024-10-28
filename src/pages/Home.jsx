@@ -50,17 +50,32 @@ function Home() {
         </Col>
       </Row>
 
-      {/* Acordeón */}
-      <Accordion defaultActiveKey="0" className="mt-4">
-        <Accordion.Item eventKey="0">
-          <Accordion.Header>Preguntas Frecuentes</Accordion.Header>
-          <Accordion.Body>Contenido de la pregunta frecuente 1.</Accordion.Body>
-        </Accordion.Item>
-        <Accordion.Item eventKey="1">
-          <Accordion.Header>Horarios</Accordion.Header>
-          <Accordion.Body>Contenido de los horarios.</Accordion.Body>
-        </Accordion.Item>
-      </Accordion>
+        {/* Acordeón */}
+        <h5>Nuestros puntos de atención</h5>
+        <Accordion defaultActiveKey="0" className="mt-4">
+          <Accordion.Item eventKey="0">
+            <Accordion.Header>Bucaramanga</Accordion.Header>
+            <Accordion.Body as={'ul'}>
+            <span style={{ margin: '2px 0' }}><li>Calle 35 # 10-43</li></span>
+            <span style={{ margin: '2px 0' }}><li>Carrera 11 # 34-52</li></span>
+            <span style={{ margin: '2px 0' }}><li>Calle 89 Transversal Oriental Metropolitana – 69</li></span>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="1">
+            <Accordion.Header>Floridablanca</Accordion.Header>
+            <Accordion.Body as={'ul'}>
+              <span style={{ margin: '2px 0' }}><li>Calle 5 N° 8 - 25 Casco Antiguo</li></span>
+              <span style={{ margin: '2px 0' }}><li>Avenida 60 N° 42 - 63 Barrio el Carmen</li></span>
+            </Accordion.Body>
+          </Accordion.Item>
+          <Accordion.Item eventKey="2">
+            <Accordion.Header>Piedecuesta</Accordion.Header>
+            <Accordion.Body as={'ul'}>
+            <span style={{ margin: '2px 0' }}><li>Calle 36 # 50-12</li></span>
+            </Accordion.Body>
+          </Accordion.Item>
+        </Accordion>
+
 
       {/* Video y Audio */}
       <div className="mt-4" >
