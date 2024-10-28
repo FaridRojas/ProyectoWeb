@@ -1,3 +1,4 @@
+//Implementación del footer
 function Footer() {
     const miembros = [
       { nom: 'Farid Rojas', nombre: 'Farid Camilo Rojas Vargas', codigo: '2220051', correo: 'juan.perez@example.com' },
@@ -7,10 +8,11 @@ function Footer() {
     ];
   
     const mostrarInfo = (miembro) => {
-      alert(`Nombre: ${miembro.nombre}\nCódigo: ${miembro.codigo}\nCorreo: ${miembro.correo}`);
+      alert(`Nombre: ${miembro.nombre}\nCódigo: ${miembro.codigo}\nCorreo: ${miembro.correo}`);//Alerta en el navegador que enseña la información de cada integrante
     };
   
     return (
+      //Código en JSX para implementar los enlaces de redes sociales
       <footer className="text-center py-4">
         <p>Nuestras redes sociales:</p>
         <a href="https://facebook.com">Facebook</a> | 
